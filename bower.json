@@ -1,0 +1,22 @@
+{
+  "name": "todo",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Srikanth Kondaparthy"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.6.1",
+    "iron-elements": "^1.0.10",
+    "paper-elements": "^1.0.7"
+  }
+}

@@ -1,0 +1,53 @@
+<link rel="import" href="../bower_components/polymer/polymer.html" />
+
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+
+<link rel="import" href="todo-data.html" />
+<link rel="import" href="todo-list.html" />
+
+<dom-module name="todo-view">
+	<style type="text/css">
+		paper-icon-button{
+			color: #3f51b5;
+		}
+	</style>
+	<template>
+		<div>
+			<todo-data todos="{{todos}}"></todo-data>
+			<paper-input-container>
+				<paper-icon-button prefix icon="icons:add" on-tap="_add"></paper-icon-button>
+				<!-- <iron-icon prefix icon="icons:add"></iron-icon> -->
+				<label>Add new Todo item</label>
+				<input is="iron-input" bind-value={{item}}>
+			</paper-input-container>
+			<div>
+				<h3>Todo list</h3>
+				<todo-list filter-by="incomplete" todos="{{todos}}"></todo-list>
+			</div>
+			<div>
+				<h3>Completed list</h3>
+				<todo-list filter-by="complete" todos="{{todos}}"></todo-list>
+			</div>
+		</div>
+	</template>
+	<script type="text/javascript">
+		Polymer({
+			is: 'todo-view',
+			_add: function()
+			{
+				if (this.item)
+				{
+					this.push('todos', {
+						name: this.item,
+						done: false
+					});
+				}
+
+				this.item = null;
+			}
+
+		})
+	</script>
+</dom-module>
